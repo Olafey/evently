@@ -27,7 +27,6 @@ Evently is a sleek and modern event management web application built with the ME
 - Node.js
 - Express.js
 - MongoDB (with Mongoose)
-- JWT for authentication
 
 ---
 
