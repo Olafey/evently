@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/signUp.css";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -20,8 +20,21 @@ const signSchema = yup.object({
     .min(6, "Password must be at least 6 characters"),
 });
 
+//form validation
+//form input
+
 const SignUp = () => {
-  const { register, handleSubmit } = useForm();
+  const [showPassword, setShowPassword] = useState(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signSchema),
+  });
+  const toggPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const signed = (data) => {
     alert("success");
