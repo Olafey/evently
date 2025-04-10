@@ -19,9 +19,6 @@ const signSchema = yup.object({
     .min(6, "Password must be at least 6 characters"),
 });
 
-//form validation
-//form input
-
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(true);
   const {
@@ -31,9 +28,9 @@ const SignUp = () => {
   } = useForm({
     resolver: yupResolver(signSchema),
   });
-  //   const toggPassword = () => {
-  //     setShowPassword((prev) => !prev);
-  //   };
+  const toggPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const signed = (data) => {
     alert("success");
@@ -47,25 +44,13 @@ const SignUp = () => {
 
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            {...register("email")}
-          />
-          {error.email && <p className="error">{errors.email.message}</p>}
+          <input id="email" name="email" {...register("email")} />
+          {errors.email && <p className="error">{errors.email.message}</p>}
         </div>
 
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            {...register("name")}
-          />
+          <input type="text" id="name" name="name" {...register("name")} />
         </div>
 
         <div className="form-group">
@@ -74,7 +59,6 @@ const SignUp = () => {
             type="password"
             id="password"
             name="password"
-            required
             {...register("password")}
           />
         </div>
