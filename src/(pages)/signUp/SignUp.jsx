@@ -31,9 +31,9 @@ const SignUp = () => {
   } = useForm({
     resolver: yupResolver(signSchema),
   });
-  const toggPassword = () => {
-    setShowPassword((prev) => !prev);
-  };
+  //   const toggPassword = () => {
+  //     setShowPassword((prev) => !prev);
+  //   };
 
   const signed = (data) => {
     alert("success");
